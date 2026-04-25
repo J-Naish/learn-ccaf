@@ -1,6 +1,6 @@
 ---
 name: mock-exam
-description: Use when the user wants a generated/simulated CCAF mock exam (NOT the original Practice Exam questions). Triggers on phrases like "模試を作って/受けたい", "オリジナルの模擬試験", "新しい問題で模試", "mock exam", "新規に問題を作って". Synthesizes fresh multiple-choice questions grounded in `Foundations Certification Exam Guide.md` and `docs/`, weighted by exam domain, presents them one at a time, and grades with explanations citing the source docs.
+description: Use when the user wants a generated/simulated CCAF mock exam (NOT the original Practice Exam questions). Triggers on phrases like "模試を作って/受けたい", "オリジナルの模擬試験", "新しい問題で模試", "mock exam", "新規に問題を作って". Synthesizes fresh multiple-choice questions grounded in `Official Exam Guide/Foundations Certification Exam Guide.md` and `docs/`, weighted by exam domain, presents them one at a time, and grades with explanations citing the source docs.
 ---
 
 # Mock Exam Mode
@@ -9,7 +9,7 @@ Generate a fresh CCAF-style mock exam from the local documentation and run the u
 
 ## Sources
 
-- **Exam structure & scope**: `Foundations Certification Exam Guide.md` (domains, task statements, in-scope/out-of-scope appendix, sample question style)
+- **Exam structure & scope**: `Official Exam Guide/Foundations Certification Exam Guide.md` (domains, task statements, in-scope/out-of-scope appendix, sample question style)
 - **Technical ground truth** for question authoring and explanations:
   - `docs/Claude API/` — Messages API, prompt caching, batch, tool use, structured output, files, evals, MCP from API side, etc.
   - `docs/Claude Code/` — Settings (`Settings.md`, `Permissions.md`, `Sandboxing.md`), CLI flags, hooks, slash commands, subagents, Agent SDK

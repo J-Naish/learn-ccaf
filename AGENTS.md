@@ -6,7 +6,7 @@ It consolidates the exam guide, local mirrors of the official Claude API / Claud
 
 ## Exam Content
 
-[`./Foundations Certification Exam Guide.md`](./Foundations%20Certification%20Exam%20Guide.md) — The exam guide itself (Markdown version). Includes 5 domains and task statements, 12 sample questions with explanations, preparation exercises, and in-scope / out-of-scope topics.
+[`./Official Exam Guide/Foundations Certification Exam Guide.md`](./Official%20Exam%20Guide/Foundations%20Certification%20Exam%20Guide.md) — The exam guide itself (Markdown version). Includes 5 domains and task statements, 12 sample questions with explanations, preparation exercises, and in-scope / out-of-scope topics.
 
 ### Exam Domains (Weights)
 
@@ -22,14 +22,24 @@ It consolidates the exam guide, local mirrors of the official Claude API / Claud
 
 | Path | Description |
 |---|---|
-| [`Welcome & what to expect.md`](./Welcome%20&%20what%20to%20expect.md) | Welcome message and overview of the certification exam |
-| [`Foundations Certification Exam Guide.md`](./Foundations%20Certification%20Exam%20Guide.md) | The exam guide itself (converted from PDF to Markdown). Contains domain definitions, task statements, 12 sample questions with explanations, preparation exercises, and appendices (in-scope / out-of-scope). `Foundations Certification Exam Guide.pdf` is the original |
-| `Frequently Asked Questions.pdf` | Official exam FAQ |
-| `Anthropic Academy Course Catalog.pdf` | Catalog of available Anthropic Academy courses |
-| [`Anthropic Academy/`](./Anthropic%20Academy/) | Transcripts of Anthropic Academy courses (`.txt`) |
+| [`Official Exam Guide/`](./Official%20Exam%20Guide/) | Official exam package — `Welcome & what to expect.md`, `Foundations Certification Exam Guide.md` / `.pdf`, `Frequently Asked Questions.pdf` |
+| [`Anthropic Academy/`](./Anthropic%20Academy/) | Transcripts of Anthropic Academy courses (`.txt`) plus `Anthropic Academy Course Catalog.pdf` |
 | [`Practice Exam/`](./Practice%20Exam/) | Original screenshots of the Practice Exam, plus per-scenario Markdown transcribing the questions, choices, correct answers, and explanations |
 | [`docs/`](./docs/) | Local mirror of the official Claude API / Claude Code / MCP documentation |
 | [`.claude/`](./.claude/) | Claude Code project configuration — `settings.json` and `skills/` (`practice-exam`, `mock-exam`) |
+
+---
+
+### Official Exam Guide
+
+Official exam package distributed by Anthropic.
+
+| File | Description |
+|---|---|
+| [`Official Exam Guide/Welcome & what to expect.md`](./Official%20Exam%20Guide/Welcome%20&%20what%20to%20expect.md) | Welcome message and overview of the certification exam |
+| [`Official Exam Guide/Foundations Certification Exam Guide.md`](./Official%20Exam%20Guide/Foundations%20Certification%20Exam%20Guide.md) | The exam guide itself (converted from PDF to Markdown). Contains domain definitions, task statements, 12 sample questions with explanations, preparation exercises, and appendices (in-scope / out-of-scope) |
+| `Official Exam Guide/Foundations Certification Exam Guide.pdf` | Original PDF of the exam guide |
+| `Official Exam Guide/Frequently Asked Questions.pdf` | Official exam FAQ |
 
 ---
 
@@ -56,6 +66,7 @@ Course transcript text files.
 | [`Anthropic Academy/Claude Code in Action.txt`](./Anthropic%20Academy/Claude%20Code%20in%20Action.txt) | Practical usage of Claude Code |
 | [`Anthropic Academy/Introduction to Model Context Protocol.txt`](./Anthropic%20Academy/Introduction%20to%20Model%20Context%20Protocol.txt) | Overview course on MCP |
 | [`Anthropic Academy/Model Context Protocol: Advanced Topics.txt`](./Anthropic%20Academy/Model%20Context%20Protocol:%20Advanced%20Topics.txt) | Advanced topics on MCP |
+| `Anthropic Academy/Anthropic Academy Course Catalog.pdf` | Catalog of available Anthropic Academy courses |
 
 ---
 

@@ -105,7 +105,7 @@ When the user stops or all 4 scenarios are done, show:
 - Total score across attempted scenarios
 - Per-scenario breakdown
 - Topics/domains with the weakest performance, mapped to the 5 exam domains (Agentic Architecture & Orchestration / Tool Design & MCP / Claude Code Configuration / Prompt Engineering / Context Management & Reliability)
-- Pointers into `docs/` and `Foundations Certification Exam Guide.md` for review
+- Pointers into `docs/` and `Official Exam Guide/Foundations Certification Exam Guide.md` for review
 
 ## Rules
 

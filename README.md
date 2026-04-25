@@ -19,7 +19,7 @@ Claude Code で開くと、リポジトリ内の独自 skill (`practice-exam` / 
 
 合格ライン: **720 / 1000** (Practice Exam の推奨目標は 900 / 1000)
 
-詳細は [`Foundations Certification Exam Guide.md`](./Foundations%20Certification%20Exam%20Guide.md) を参照。
+詳細は [`Official Exam Guide/Foundations Certification Exam Guide.md`](./Official%20Exam%20Guide/Foundations%20Certification%20Exam%20Guide.md) を参照。
 
 ---
 
@@ -62,11 +62,9 @@ Practice Exam を受けたい
 
 | Path | 内容 |
 |---|---|
-| [`Foundations Certification Exam Guide.md`](./Foundations%20Certification%20Exam%20Guide.md) | 公式試験ガイド (PDF を Markdown 化) |
-| [`Welcome & what to expect.md`](./Welcome%20&%20what%20to%20expect.md) | 試験の概要 |
-| `Frequently Asked Questions.pdf` | 公式 FAQ |
+| [`Official Exam Guide/`](./Official%20Exam%20Guide/) | 公式試験パッケージ (Exam Guide MD/PDF・Welcome・FAQ) |
 | [`Practice Exam/`](./Practice%20Exam/) | 4 シナリオ × 15 問の Practice Exam (原文) |
-| [`Anthropic Academy/`](./Anthropic%20Academy/) | Anthropic Academy 講座の文字起こし |
+| [`Anthropic Academy/`](./Anthropic%20Academy/) | Anthropic Academy 講座の文字起こしと Course Catalog |
 | [`docs/`](./docs/) | Claude API / Claude Code / MCP 公式ドキュメントのローカルミラー |
 | [`.claude/skills/`](./.claude/skills/) | `practice-exam` / `mock-exam` skill |
 
@@ -76,7 +74,7 @@ Practice Exam を受けたい
 
 ## 学習の進め方 (推奨フロー)
 
-1. **試験範囲を把握する** — [`Foundations Certification Exam Guide.md`](./Foundations%20Certification%20Exam%20Guide.md) のドメインと task statement を一通り読む
+1. **試験範囲を把握する** — [`Official Exam Guide/Foundations Certification Exam Guide.md`](./Official%20Exam%20Guide/Foundations%20Certification%20Exam%20Guide.md) のドメインと task statement を一通り読む
 2. **講座で土台を作る** — [`Anthropic Academy/`](./Anthropic%20Academy/) の 4 講座 (Building with the Claude API / Claude Code in Action / MCP 入門 / MCP 上級) を流し読み
 3. **公式ドキュメントを参照する** — [`docs/`](./docs/) のミラーを使って詳細を確認 (ネット接続なしでも grep 可能)
 4. **Practice Exam を解く** — `practice-exam` skill を呼び出して 4 シナリオを順に消化、弱点ドメインを把握
