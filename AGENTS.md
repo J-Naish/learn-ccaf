@@ -2,11 +2,11 @@
 
 A repository for preparing for the Claude Certified Architect – Foundations (CCAF) exam.
 
-It consolidates the exam guide, local mirrors of the official Claude API / Claude Code / MCP documentation, transcripts of Anthropic Academy courses, and reference sample repositories (cookbooks / quickstarts).
+It consolidates the exam guide, local mirrors of the official Claude API / Claude Code / MCP documentation, and transcripts of Anthropic Academy courses.
 
 ## Exam Content
 
-[`./Foundations Certification Exam Guide.md`](../Foundations%20Certification%20Exam%20Guide.md) — The exam guide itself (Markdown version). Includes 5 domains and task statements, 12 sample questions with explanations, preparation exercises, and in-scope / out-of-scope topics.
+[`./Foundations Certification Exam Guide.md`](./Foundations%20Certification%20Exam%20Guide.md) — The exam guide itself (Markdown version). Includes 5 domains and task statements, 12 sample questions with explanations, preparation exercises, and in-scope / out-of-scope topics.
 
 ### Exam Domains (Weights)
 
@@ -22,12 +22,14 @@ It consolidates the exam guide, local mirrors of the official Claude API / Claud
 
 | Path | Description |
 |---|---|
+| [`Welcome & what to expect.md`](./Welcome%20&%20what%20to%20expect.md) | Welcome message and overview of the certification exam |
 | [`Foundations Certification Exam Guide.md`](./Foundations%20Certification%20Exam%20Guide.md) | The exam guide itself (converted from PDF to Markdown). Contains domain definitions, task statements, 12 sample questions with explanations, preparation exercises, and appendices (in-scope / out-of-scope). `Foundations Certification Exam Guide.pdf` is the original |
+| `Frequently Asked Questions.pdf` | Official exam FAQ |
+| `Anthropic Academy Course Catalog.pdf` | Catalog of available Anthropic Academy courses |
 | [`Anthropic Academy/`](./Anthropic%20Academy/) | Transcripts of Anthropic Academy courses (`.txt`) |
 | [`Practice Exam/`](./Practice%20Exam/) | Original screenshots of the Practice Exam, plus per-scenario Markdown transcribing the questions, choices, correct answers, and explanations |
 | [`docs/`](./docs/) | Local mirror of the official Claude API / Claude Code / MCP documentation |
-| [`repositories/`](./repositories/) | Clones of reference sample repositories (cookbooks, quickstarts) |
-| [`.claude/`](./.claude/) | Claude Code project configuration (`settings.json`, `skills/`) |
+| [`.claude/`](./.claude/) | Claude Code project configuration — `settings.json` and `skills/` (`practice-exam`, `mock-exam`) |
 
 ---
 
@@ -99,28 +101,3 @@ MCP specification and related documentation. Base URL: `https://modelcontextprot
 | `docs/Model Context Protocol/Specification/` | [`Specification.md`](./docs/Model%20Context%20Protocol/Specification/Specification.md), [`Architecture.md`](./docs/Model%20Context%20Protocol/Specification/Architecture.md), [`Schema Reference.md`](./docs/Model%20Context%20Protocol/Specification/Schema%20Reference.md), [`Key Changes.md`](./docs/Model%20Context%20Protocol/Specification/Key%20Changes.md), Base Protocol / Client Features / Server Features |
 | `docs/Model Context Protocol/Extensions/` | [`Extensions Overview.md`](./docs/Model%20Context%20Protocol/Extensions/Extensions%20Overview.md), [`Extension Support Matrix.md`](./docs/Model%20Context%20Protocol/Extensions/Extension%20Support%20Matrix.md), Authorization Extensions, MCP Apps |
 | `docs/Model Context Protocol/Registry/` | [`About.md`](./docs/Model%20Context%20Protocol/Registry/About.md), [`Quickstart: Publish a Server.md`](./docs/Model%20Context%20Protocol/Registry/Quickstart:%20Publish%20a%20Server.md), [`FAQ.md`](./docs/Model%20Context%20Protocol/Registry/FAQ.md), Consuming / Publishing, [`Terms of Service.md`](./docs/Model%20Context%20Protocol/Registry/Terms%20of%20Service.md) |
-
----
-
-### repositories/ — Reference Repositories
-
-### [`repositories/cookbooks/`](./repositories/cookbooks/)
-
-Clone of the Anthropic Cookbook (`anthropics/anthropic-cookbooks`). Implementation examples by category:
-
-- `claude_agent_sdk/`, `managed_agents/`, `patterns/` — Agent design
-- `tool_use/`, `tool_evaluation/` — Tool usage
-- `extended_thinking/`, `observability/` — Extended features
-- `multimodal/`, `images/` — Multimodal
-- `finetuning/`, `coding/`, `capabilities/`, `skills/`, `misc/` — Other
-- `CLAUDE.md`, `README.md`, `pyproject.toml`, etc.
-
-### [`repositories/quickstarts/`](./repositories/quickstarts/)
-
-Clone of the Anthropic Quickstarts (`anthropics/anthropic-quickstarts`). Runnable sample apps:
-
-- `agents/` — General-purpose agent
-- `autonomous-coding/` — Autonomous coding
-- `customer-support-agent/` — Customer support
-- `financial-data-analyst/` — Financial data analysis
-- `browser-use-demo/`, `computer-use-demo/` — Browser / computer-use demos

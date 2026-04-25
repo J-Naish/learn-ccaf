@@ -13,12 +13,10 @@ If you haven't already, please take a close look at the documents that are avail
 - **Exam guide:** `CCAF-Exam-Guide.pdf`
 - **FAQ:** `CCAF-FAQ.pdf`
 
-You may also access the practice exam here.
-
 We recommend you attempt and successfully complete the practice exam with a minimum score of 900/1000 to give you the confidence in your readiness to pass the Certification Exam with a minimum score of 720.
 
 **Please do not attempt this exam if you are not ready.**
-If you fail this exam today, you will not be able to re-take it for 6 (months, 以降は画像切れ)。
+If you fail this exam today, you will not be able to re-take it for 6 months.
 
 ## Exam Content
 
