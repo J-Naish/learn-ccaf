@@ -7,8 +7,11 @@ You are building a **customer support resolution agent** using the Claude Agent 
 Your agent achieves 55% first-contact resolution, well below the 80% target. Logs show it escalates straightforward cases (standard damage replacements with photo evidence) while attempting to autonomously handle complex situations requiring policy exceptions. What's the most effective way to improve escalation calibration?
 
 A) Have the agent self-report a confidence score (1-10) before each response and automatically route requests to humans when confidence falls below a threshold.
+
 B) Implement sentiment analysis to detect customer frustration levels and automatically escalate when negative sentiment exceeds a threshold.
+
 C) Add explicit escalation criteria to your system prompt with few-shot examples demonstrating when to escalate versus resolve autonomously.
+
 D) Deploy a separate classifier model trained on historical tickets to predict which requests need escalation before the main agent begins processing.
 
 Correct Answer: C
@@ -30,8 +33,11 @@ Study Area: Customer Support Resolution Agent — review Escalation Decisions co
 Production logs show that for simple requests like "refund order #1234", your agent succeeds in 3-4 tool calls with 91% resolution rate. However, for complex requests like "I've been charged twice, my discount didn't apply, and I want to cancel", the agent averages 12+ tool calls with only 54% resolution—often investigating concerns sequentially and gathering redundant customer data for each one. What's the most effective change to improve complex request handling?
 
 A) Decompose the request into distinct concerns, then investigate each in parallel using shared customer context before synthesizing a resolution.
+
 B) Reduce the number of available tools by consolidating get_customer, lookup_order, and billing-related lookups into a single investigate_issue tool.
+
 C) Add few-shot examples demonstrating ideal tool call sequences for various multi-part billing scenarios to your system prompt.
+
 D) Add explicit verification gates between steps requiring the agent to checkpoint after resolving each concern before moving to the next.
 
 Correct Answer: A
@@ -53,8 +59,11 @@ Study Area: Customer Support Resolution Agent — review Multi-step Workflow Orc
 You're implementing the agentic loop for your support agent. After each API call to Claude, you need to determine whether to continue the loop (execute the requested tools and call Claude again) or stop (present the final response to the customer). What determines this decision?
 
 A) Parse Claude's response text for phrases like "I've completed" or "Is there anything else?""—these natural language signals indicate the task is finished.
+
 B) Set a maximum iteration count (e.g., 10 calls) and stop when reached, regardless of whether Claude indicates more work is needed.
+
 C) Check the `stop_reason` field in Claude's response—continue when it equals ""tool_use" and stop when it equals "end_turn" .
+
 D) Check whether the response includes any assistant text content—if Claude generated explanatory text, the loop should end.
 
 Correct Answer: C
@@ -76,8 +85,11 @@ Study Area: Customer Support Resolution Agent — review Agentic Loop Fundamenta
 After calling `get_customer` and `lookup_order` , the agent has retrieved all available system data but faces uncertainty. Which situation represents the most appropriate trigger for calling `escalate_to_human` ?
 
 A) The customer claims they never received their order, but tracking shows it was delivered and signed for at their address three days ago. The agent should escalate because presenting contradictory evidence might damage the customer relationship.
+
 B) The customer wants to cancel an order that shipped yesterday, with delivery scheduled for tomorrow. The agent should escalate because the customer might change their mind once they receive the package.
+
 C) The customer requests a price match against a competitor. Your policies allow adjustments for price drops on your own site within 14 days but are silent on competitor pricing. The agent should escalate for policy interpretation.
+
 D) The customer's message mentions both a billing question and a product return. The agent should escalate so a human can coordinate handling both issues in a single interaction.
 
 Correct Answer: C
@@ -99,8 +111,11 @@ Study Area: Customer Support Resolution Agent — review Escalation Decisions co
 Production logs show the agent frequently calls `get_customer` when users ask about orders (e.g., "check my order #12345"), instead of calling `lookup_order` . Both tools have minimal descriptions ("Retrieves customer information" / "Retrieves order details") and accept similar identifier formats. What's the most effective first step to improve tool selection reliability?
 
 A) Expand each tool's description to include input formats it handles, example queries, edge cases, and boundaries explaining when to use it versus similar tools.
+
 B) Consolidate both tools into a single lookup_entity tool that accepts any identifier and internally determines which backend to query.
+
 C) Implement a routing layer that parses user input before each turn and pre-selects the appropriate tool based on detected keywords and identifier patterns.
+
 D) Add few-shot examples to the system prompt demonstrating correct tool selection patterns, with 5-8 examples showing order- related queries routing to `lookup_order` .
 
 Correct Answer: A
@@ -122,8 +137,11 @@ Study Area: Customer Support Resolution Agent — review Tool Interface Design c
 Production logs show the agent sometimes selects `get_customer` when `lookup_order` would be more appropriate, particularly for ambiguous requests like "I need help with my recent purchase." You decide to add few-shot examples to your system prompt to improve tool selection. Which approach will most effectively address this issue?
 
 A) Add explicit "Use when" and "do not use when" guidelines in each tool's description covering the ambiguous cases.
+
 B) Add examples grouped by tool—all `get_customer` scenarios together, then all `lookup_order` scenarios.
+
 C) Add 10-15 examples of clear, unambiguous requests that demonstrate correct tool selection for each tool's typical use cases.
+
 D) Add 4-6 examples targeting ambiguous scenarios, each showing reasoning for why one tool was chosen over plausible alternatives.
 
 Correct Answer: D
@@ -145,8 +163,11 @@ Study Area: Customer Support Resolution Agent — review Tool Selection Reliabil
 Production data shows that in 12% of cases, your agent skips `get_customer` entirely and calls `lookup_order` using only the customer's stated name, occasionally leading to misidentified accounts and incorrect refunds. What change would most effectively address this reliability issue?
 
 A) Enhance the system prompt to state that customer verification via `get_customer` is mandatory before any order operations.
+
 B) Implement a routing classifier that analyzes each request and enables only the subset of tools appropriate for that request type.
+
 C) Add few-shot examples showing the agent always calling `get_customer` first, even when customers volunteer order details.
+
 D) Add a programmatic prerequisite that blocks `lookup_order` and `process_refund` calls until `get_customer` has returned a verified customer ID.
 
 Correct Answer: D
@@ -168,8 +189,11 @@ Study Area: Customer Support Resolution Agent — review Multi-step Workflow Enf
 Your `get_customer` tool returns all matches when searching by name. Claude currently picks the customer with the most recent order when multiple results are returned, but production data shows this causes 15% of multi-match cases to proceed with the wrong customer account. How should you address this?
 
 A) Modify `get_customer` to return only the single most likely match based on a ranking algorithm, simplifying Claude's decision by eliminating ambiguous results.
+
 B) Instruct Claude to ask for an additional identifier (email, phone, or order number) when `get_customer` returns multiple matches, before taking any customer-specific action.
+
 C) Add few-shot examples showing Claude how to use conversational context (products mentioned, dates referenced) to infer the correct customer without requiring clarification.
+
 D) Implement a confidence scoring system that proceeds automatically above 85% confidence and prompts for clarification below that threshold.
 
 Correct Answer: B
@@ -191,8 +215,11 @@ Study Area: Customer Support Resolution Agent — review Ambiguous Result Handli
 Your support agent uses progressive summarization—when context reaches 70% capacity, older turns are summarized while recent ones remain verbatim. Production logs reveal a pattern: customers reference specific amounts ("the 15% discount I mentioned"), but the agent responds with incorrect values. Investigation shows these details were stated 20+ turns ago and got condensed into vague summaries like "discussed promotional pricing." What's the most effective fix?
 
 A) Extract transactional facts (amounts, dates, order numbers) into a persistent "case facts" block included in each prompt, outside the summarized history.
+
 B) Revise the summarization prompt to explicitly preserve all numerical values, percentages, dates, and customer-stated expectations verbatim.
+
 C) Increase the summarization threshold from 70% to 85% capacity so conversations have more room before summarization triggers.
+
 D) Store full conversation history externally and implement retrieval to search it when the agent detects reference phrases like "as | mentioned."
 
 Correct Answer: A
@@ -214,8 +241,11 @@ Study Area: Customer Support Resolution Agent — review Conversation Context Ma
 Production metrics show your agent averages 4+ API round-trips per resolution. Analysis reveals Claude frequently requests get_customer and `lookup_order` in separate sequential turns even when both are needed upfront. What's the most effective way to reduce round-trips?
 
 A) Increase `max_tokens` to give Claude more space to plan ahead and naturally batch its tool requests.
+
 B) Create composite tools like `get_customer_with_orders` that bundle common lookup combinations into single calls.
+
 C) Implement speculative execution that automatically calls likely-needed tools alongside any requested tool, returning all results regardless of what was requested.
+
 D) Prompt Claude to batch tool requests per turn, and return all tool results together before the next API call.
 
 Correct Answer: D
@@ -237,8 +267,11 @@ Study Area: Customer Support Resolution Agent — review Parallel Tool Execution
 In testing, you notice the agent frequently calls `get_customer` when users ask about order status, even though `lookup_order` would be more appropriate. What should you examine first to address this issue?
 
 A) Implement a pre-processing classifier that detects order queries and routes directly to lookup_order
+
 B) Review tool descriptions to ensure they clearly distinguish each tool's purpose
+
 C) Add few-shot examples covering every possible order-related query pattern to the system prompt
+
 D) Reduce the number of tools available to the agent to simplify selection
 
 Correct Answer: B
@@ -260,8 +293,11 @@ Study Area: Customer Support Resolution Agent — review Tool Selection Reliabil
 Production logs reveal that the agent misinterprets data from your MCP tools: Unix timestamps from `get_customer` , ISO 8601 dates from lookup_order , and numeric status codes (1=pending, 2=shipped). Some tools are third-party MCP servers you cannot modify. What's the most maintainable approach to normalize data formats?
 
 A) Create a normalize_data tool that the agent calls after each data retrieval to transform values
+
 B) Add detailed format documentation to your system prompt explaining each tool's data conventions
+
 C) Modify tools you control to return human-readable formats; create wrapper tools for third-party tools
+
 D) Use a `PostToolUse` hook to intercept tool results and apply formatting transformations before agent processing
 
 Correct Answer: D
@@ -283,8 +319,11 @@ Study Area: Customer Support Resolution Agent — review Agent SDK Hook Patterns
 Production metrics show that when your agent resolves complex cases involving billing disputes or multi-order returns, customer satisfaction scores are 15% lower than for simple cases—even when the resolution is technically correct. Root cause analysis reveals the agent provides accurate resolutions but inconsistently explains the reasoning: sometimes omitting relevant policy details, other times missing timeline information or next steps. The specific context gaps vary by case. You want to improve resolution quality without adding human review overhead. Which approach is most effective?
 
 A) Increase the model tier from Haiku to Sonnet for complex cases, routing based on detected case complexity.
+
 B) Add a confirmation step where the agent asks "Does this fully address your concern?" before closing, letting customers request additional information if needed.
+
 C) Implement few-shot examples in the system prompt showing complete resolution explanations for five common complex case types, demonstrating how to include policy context, timelines, and next steps.
+
 D) Add a self-critique step where the agent evaluates its draft response for completeness—ensuring it addresses the customer's concern, includes relevant context, and anticipates follow-up questions.
 
 Correct Answer: D
@@ -306,8 +345,11 @@ Study Area: Customer Support Resolution Agent — review Self-Evaluation Pattern
 Production logs reveal a consistent pattern: when customers include "account" in messages (e.g., "| want to check my account for the order I placed yesterday"), the agent calls `get_customer` first 78% of the time. When customers phrase similar requests without "account" (e.g., "| want to check on the order I placed yesterday"), it calls `lookup_order` first 93% of the time. The tool descriptions are well-written and unambiguous. What is the most likely root cause of this discrepancy?
 
 A) The system prompt contains keyword-sensitive instructions that steer behavior based on terms like "account," creating unintended tool selection patterns
+
 B) The tool descriptions need additional negative examples specifying when NOT to use each tool to prevent this keyword-triggered confusion
+
 C) The model's base training creates associations between "account" terminology and customer-related operations that override the tool descriptions
+
 D) The model requires more training data on multi-concept messages and should be fine-tuned on examples that include both account and order language
 
 Correct Answer: A
@@ -329,8 +371,11 @@ Study Area: Customer Support Resolution Agent — review Tool Selection Reliabil
 Your agent handles single-concern requests with 94% accuracy (e.g., "I need a refund for order #1234"). However, when customers include multiple concerns in one message (e.g., "I need a refund for order #1234 and also want to update my shipping address for order #5678"), tool selection accuracy drops to 58%. The agent typically addresses only one concern or mixes up parameters between requests. What's the most effective approach to improve reliability for multi-concern requests?
 
 A) Implement response validation that detects incomplete responses and automatically re-prompts the agent to address any missed concerns.
+
 B) Add few-shot examples to your prompt demonstrating the correct reasoning and tool sequence for multi-concern requests.
+
 C) Implement a preprocessing layer that uses a separate model call to decompose multi-concern messages into individual requests, process each independently, then combine the results.
+
 D) Consolidate related tools into fewer, more general-purpose tools.
 
 Correct Answer: B
